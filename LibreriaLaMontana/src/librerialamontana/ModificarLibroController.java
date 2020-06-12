@@ -7,27 +7,21 @@ package librerialamontana;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
  *
  * @author Aylinee
  */
-public class SistemaEmpleadoAdmiController implements Initializable {
+public class ModificarLibroController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
-    @FXML
-    Button inventario;
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
     
 }
