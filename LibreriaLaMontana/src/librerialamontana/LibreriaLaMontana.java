@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import Conexion.Conector;
 
 /**
  *
@@ -27,6 +28,9 @@ public class LibreriaLaMontana extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
+        Conector c = new Conector();
+        c.conect();
+        
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         
         Scene scene = new Scene(root, 600, 400);
@@ -39,6 +43,7 @@ public class LibreriaLaMontana extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         launch(args);
     }
     
