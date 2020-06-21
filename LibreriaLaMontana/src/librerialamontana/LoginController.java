@@ -57,7 +57,8 @@ public class LoginController implements Initializable {
         try {
             String nombre = usuario.getText();
             String contrasena = usuario.getText();
-            if(Usuario.validacion(nombre, contrasena)){
+            //Arreglar y ver el login con la nueva carpeta
+            if(true){
                 root = FXMLLoader.load(getClass().getResource("sistemaEmpleadoAdmi.fxml"));
             }
             else{
@@ -78,7 +79,7 @@ public class LoginController implements Initializable {
         Stage stage = (Stage) root.getScene().getWindow();
         Parent root=null;
         try {
-            root = FXMLLoader.load(getClass().getResource("sistemaInvitado.fxml"));
+            root = FXMLLoader.load(getClass().getResource("SistemaEmpleadoAdmi.fxml"));
         } catch (IOException ex) {
             System.out.println("No se puede cargar la vista ");
         }

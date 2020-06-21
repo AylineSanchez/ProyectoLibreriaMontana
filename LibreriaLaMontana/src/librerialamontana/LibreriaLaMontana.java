@@ -24,7 +24,6 @@ import Conexion.Conector;
  */
 public class LibreriaLaMontana extends Application {
     
-    public static ArrayList<Usuario> usuarios = new ArrayList<>();
     
     @Override
     public void start(Stage stage) throws IOException {

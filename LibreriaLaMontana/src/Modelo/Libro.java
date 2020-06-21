@@ -12,6 +12,7 @@ package Modelo;
 public class Libro {
     int id;
     String nombre;
+    String autor;
     String descripcion;
     int precio;
     int stock;
@@ -21,9 +22,10 @@ public class Libro {
     String imagen;
     int refCategoria;
 
-    public Libro(int id, String nombre, String descripcion, int precio, int stock, String editorial, String lengua, int paginas, String imagen, int refCategoria) {
+    public Libro(int id, String nombre, String autor, String descripcion, int precio, int stock, String editorial, String lengua, int paginas, String imagen, int refCategoria) {
         this.id = id;
         this.nombre = nombre;
+        this.autor=autor;
         this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
@@ -113,6 +115,13 @@ public class Libro {
     public void setRefCategoria(int refCategoria) {
         this.refCategoria = refCategoria;
     }
-    
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
     
 }
