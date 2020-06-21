@@ -71,11 +71,12 @@ public class CambiarImagenController implements Initializable {
     private void cambiarUrl(ActionEvent event) throws IOException{
         //encontrar id a modificar
         String id= "";
+        String tipo="";
         try {
             Statement stmt = con.createStatement();
             //test existence of tables
             ResultSet rs;
-            rs = stmt.executeQuery("UPDATE Libro SET imagen='"+url.getText()+"' WHERE id='"+id+"';");
+            rs = stmt.executeQuery("UPDATE "+tipo+" SET imagen='"+url.getText()+"' WHERE id='"+id+"';");
             rs.close();
             stmt.close();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
