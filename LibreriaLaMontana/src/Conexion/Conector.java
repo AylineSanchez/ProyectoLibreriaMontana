@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -109,6 +110,32 @@ public class Conector {
             return true;
         } else {
             return false;
+        }
+    }
+    
+    public void busquedaLA(String query){
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+            while (rs.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1) {
+                        System.out.print(",  ");
+                    }
+                    String columnValue = rs.getString(i);
+                    System.out.print(columnValue + " " + rsmd.getColumnName(i));
+                }
+                System.out.println("");
+            }
+            
+            rs.close();
+            stmt.close();
+
+        } catch (Exception e) {
+
         }
     }
     

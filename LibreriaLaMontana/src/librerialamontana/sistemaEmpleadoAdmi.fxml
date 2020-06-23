@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="535.0" prefWidth="823.0" style="-fx-background-color: white; -fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="535.0" prefWidth="823.0" style="-fx-background-color: white; -fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="librerialamontana.SistemaEmpleadoAdmiController">
    <children>
       <Pane prefHeight="30.0" prefWidth="832.0" style="-fx-background-color: black;" />
       <Text layoutX="88.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Librería La Montaña">
@@ -57,7 +57,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <TextField layoutX="249.0" layoutY="36.0" prefHeight="30.0" prefWidth="198.0" text="Buscar" />
+      <TextField fx:id="busqueda" layoutX="249.0" layoutY="36.0" prefHeight="30.0" prefWidth="198.0" text="Buscar" />
       <Pane layoutX="213.0" layoutY="68.0" prefHeight="41.0" prefWidth="617.0" style="-fx-background-color: blue;">
          <children>
             <Button layoutX="6.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Recomendados" textFill="#1c46d0" />
@@ -115,6 +115,7 @@
             <Image url="@../imagenes/usuario.png" />
          </image>
       </ImageView>
-      <ComboBox editable="true" layoutX="459.0" layoutY="39.0" prefWidth="150.0" promptText="Buscar por" style="-fx-background-color: blue;" />
+      <ComboBox editable="true" layoutX="453.0" layoutY="39.0" prefWidth="150.0" promptText="Buscar por" style="-fx-background-color: blue;" />
+      <Button fx:id="btnBuscar" layoutX="611.0" layoutY="39.0" mnemonicParsing="false" onAction="#display" prefHeight="25.0" prefWidth="32.0" text="B" />
    </children>
 </AnchorPane>

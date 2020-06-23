@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="LibreriaLaMontana.jar" size="452030" download="eager" />
+    <jar href="LibreriaLaMontana.jar" size="454663" download="eager" />
     <jar href="lib\postgresql-42.2.12.jar" size="930498" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="librerialamontana.LibreriaLaMontana"  name="LibreriaLaMontana" />

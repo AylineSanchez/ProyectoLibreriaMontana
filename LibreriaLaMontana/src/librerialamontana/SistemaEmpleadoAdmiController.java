@@ -5,11 +5,21 @@
  */
 package librerialamontana;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -18,16 +28,57 @@ import javafx.scene.control.Button;
  */
 public class SistemaEmpleadoAdmiController implements Initializable {
 
+    private String busquedaString;
+    
     /**
      * Initializes the controller class.
      */
     @FXML
     Button inventario;
     
+    @FXML
+    private TextField busqueda;
+    
+    @FXML
+    private AnchorPane root;
+    
+    @FXML
+    private Button btnBuscar;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    } 
     
+    @FXML 
+    private void display(ActionEvent event) throws IOException{
+
+        busquedaString = busqueda.getText();
+        System.out.println(busquedaString);
+        
+//        Stage stage = (Stage) root.getScene().getWindow();
+//        Parent root = null;
+//        
+//        root = FXMLLoader.load(getClass().getResource("ResultadosBusqueda.fxml"));
+//        
+//        Scene scene = new Scene(root);        
+//        stage.setScene(scene);
+
+    Stage stage = (Stage) root.getScene().getWindow();
+
+    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ResultadosBusqueda.fxml"));
+        
+    Parent root = (Parent)fxmlLoader.load();
+    ResultadosBusquedaController controller = fxmlLoader.<ResultadosBusquedaController>getController();
+    controller.setBusqueda(this.busquedaString);
+    controller.operarResultado();
+    Scene scene = new Scene(root);
+    stage.setScene(scene);
+    
+    }
+    
+    public void setBusquedaString(String busq){
+        this.busquedaString = busq;
+    }
     
 }
