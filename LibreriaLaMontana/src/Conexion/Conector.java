@@ -10,7 +10,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,20 +21,28 @@ import java.sql.Statement;
  */
 public class Conector {
     
-    String driver = "org.postgresql.Driver";
-    String connectString = "";
-    String user = "";
-    String password = "";
-    Connection con;
+    private ResultSet rs;
     
-    public Conector() {
+    private Statement stmt;
+    
+    private String driver = "org.postgresql.Driver";
+    
+    private String connectString = "";
+    
+    private String user = "";
+    
+    private String password = "";
+    
+    private Connection con;
+    
+    public Conector(){
         //constructor vacío
+        
     }
     
     public void conect() {
         this.readFiles();
         this.makeConnection();
-        this.testConnection();
     }    
     
     public boolean readFiles() {
@@ -70,22 +81,107 @@ public class Conector {
         }
     }
         
-    public boolean testConnection() {
+    public boolean validarLogin(String contrasena, String query) {
         System.out.println("Probando conexión con la base de datos");
+        boolean confirmacion = false;
         try {
-            Statement stmt = con.createStatement();
+            stmt = con.createStatement();
             //test existence of tables
-            ResultSet rs;
-            rs = stmt.executeQuery("SELECT * FROM categoria limit 1;");
+            rs = stmt.executeQuery(query);
+            //rs = stmt.executeQuery("SELECT usuario.contrasena FROM usuario WHERE usuario.alias = 'admin';");
+            while(rs.next()){
+                if (contrasena.equals(rs.getString(1))){
+                    confirmacion = true;
+                } else {
+                    confirmacion = false;
+                }
+            }
             rs.close();
             stmt.close();
+            
             System.out.println("OK");
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Error: No hay conexión con la base de datos");
             return false;
         }
-        return true;
+        if (confirmacion){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public ResultSet enviarQuery(ResultSet rsCopia, String query){
+        try {
+            ResultSet rsE;
+            Statement stmtE;
+            stmtE = con.createStatement();
+            rsE = stmtE.executeQuery(query);
+            rsCopia = rsE;
+            stmtE.close();
+            rsE.close();
+            return rsCopia;
+        } catch (SQLException ex) {
+            Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }    
+    }
+
+    public ResultSet getRs() {
+        return rs;
+    }
+
+    public Statement getStmt() {
+        return stmt;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public String getConnectString() {
+        return connectString;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Connection getCon() {
+        return con;
+    }
+
+    public void setRs(ResultSet rs) {
+        this.rs = rs;
+    }
+
+    public void setStmt(Statement stmt) {
+        this.stmt = stmt;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public void setConnectString(String connectString) {
+        this.connectString = connectString;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setCon(Connection con) {
+        this.con = con;
     }
     
 }

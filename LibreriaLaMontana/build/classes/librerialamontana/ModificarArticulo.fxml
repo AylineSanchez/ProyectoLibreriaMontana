@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="535.0" prefWidth="823.0" style="-fx-background-color: white; -fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="535.0" prefWidth="823.0" style="-fx-background-color: white; -fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="30.0" prefWidth="832.0" style="-fx-background-color: black;" />
       <Text layoutX="88.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Librería La Montaña">
@@ -67,7 +67,7 @@
             <Button layoutX="423.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: white;" text="Ajustes" textFill="#1c46d0" />
          </children>
       </Pane>
-      <Button layoutX="232.0" layoutY="483.0" mnemonicParsing="false" style="-fx-background-color: blue;" text="Guardar cambios" textFill="WHITE">
+      <Button layoutX="232.0" layoutY="483.0" mnemonicParsing="false" onAction="#guardarCambios" style="-fx-background-color: blue;" text="Guardar cambios" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -90,24 +90,24 @@
             <Font size="13.0" />
          </font>
       </Text>
-      <TextField layoutX="316.0" layoutY="157.0" prefHeight="25.0" prefWidth="213.0" />
+      <TextField fx:id="nombre" layoutX="316.0" layoutY="157.0" prefHeight="25.0" prefWidth="213.0" />
       <Text layoutX="224.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion:">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <TextField layoutX="316.0" layoutY="201.0" prefHeight="166.0" prefWidth="213.0" />
-      <Button layoutX="360.0" layoutY="483.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE">
+      <TextField fx:id="descripcion" layoutX="316.0" layoutY="201.0" prefHeight="166.0" prefWidth="213.0" />
+      <Button layoutX="360.0" layoutY="483.0" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="200.0" fitWidth="219.0" layoutX="591.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagen" fitHeight="200.0" fitWidth="219.0" layoutX="591.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagenes/calculadora.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="641.0" layoutY="384.0" mnemonicParsing="false" style="-fx-background-color: blue;" text="Cambiar imagen" textFill="WHITE">
+      <Button layoutX="641.0" layoutY="384.0" mnemonicParsing="false" onAction="#cambiarImagen" style="-fx-background-color: blue;" text="Cambiar imagen" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -117,6 +117,6 @@
             <Font size="13.0" />
          </font>
       </Text>
-      <TextField layoutX="316.0" layoutY="384.0" prefHeight="25.0" prefWidth="213.0" />
+      <TextField fx:id="precio" layoutX="316.0" layoutY="384.0" prefHeight="25.0" prefWidth="213.0" />
    </children>
 </AnchorPane>

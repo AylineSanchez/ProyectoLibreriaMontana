@@ -5,8 +5,10 @@
  */
 package librerialamontana;
 
+import Conexion.Conector;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -28,6 +30,10 @@ import javafx.stage.Stage;
  */
 public class LoginController implements Initializable {
     
+    private Conector c;
+    
+    private ResultSet rs;
+    
     @FXML
     private AnchorPane root;
     
@@ -47,18 +53,18 @@ public class LoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        c = new Conector();
+        c.conect();
     } 
     
-   @FXML 
+    @FXML 
     private void ingresarSistemaEmpAdm(ActionEvent event) throws IOException{
         Stage stage = (Stage) root.getScene().getWindow();
         Parent root=null;
         try {
             String nombre = usuario.getText();
-            String contrasena = usuario.getText();
-            //Arreglar y ver el login con la nueva carpeta
-            if(true){
+            String contrasena = contraseña.getText();
+            if(c.validarLogin(contrasena, "SELECT usuario.contrasena FROM usuario WHERE usuario.alias = '"+nombre+"';")){
                 root = FXMLLoader.load(getClass().getResource("sistemaEmpleadoAdmi.fxml"));
             }
             else{
