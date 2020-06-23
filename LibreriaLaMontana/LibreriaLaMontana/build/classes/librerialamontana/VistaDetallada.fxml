@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="535.0" prefWidth="823.0" style="-fx-background-color: white; -fx-border-color: black;">
+         <children>
+            <Pane prefHeight="30.0" prefWidth="832.0" style="-fx-background-color: black;" />
+            <Text layoutX="88.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Librería La Montaña">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="100.0" fitWidth="74.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/montaña.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="249.0" layoutY="36.0" prefHeight="30.0" prefWidth="198.0" text="Buscar" />
+            <Pane layoutX="5.0" layoutY="68.0" prefHeight="41.0" prefWidth="825.0" style="-fx-background-color: blue;">
+               <children>
+                  <Button layoutX="6.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Recomendados" textFill="#1c46d0" />
+                  <Button layoutX="111.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Exitos en venta" textFill="#1c46d0" />
+                  <Button layoutX="215.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Articulos libreria" textFill="#1c46d0" />
+                  <Button layoutX="326.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: white;" text="Inventario" textFill="#1c46d0" />
+                  <Button layoutX="423.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: white;" text="Ajustes" textFill="#1c46d0" />
+                  <Button layoutX="521.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: white;" text="Venta" textFill="#1c46d0" />
+               </children>
+            </Pane>
+            <Text layoutX="659.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Apellido" />
+            <Text layoutX="659.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cargo" />
+            <ImageView fitHeight="41.0" fitWidth="35.0" layoutX="765.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/usuario.png" />
+               </image>
+            </ImageView>
+            <ComboBox editable="true" layoutX="459.0" layoutY="39.0" prefWidth="150.0" promptText="Buscar por" style="-fx-background-color: blue;" />
+            <ImageView fitHeight="246.0" fitWidth="150.0" layoutX="51.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/imagenLibro2.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="51.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock Disponible:" wrappingWidth="159.98046875" />
+            <Text layoutX="269.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Literatura y retorica" />
+            <Label id="NombreAutor" layoutX="269.0" layoutY="211.0" prefHeight="35.0" prefWidth="150.0" text="ERNESTO CARDENAL" textFill="#1100fc">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label id="NombreAutor" layoutX="269.0" layoutY="163.0" prefHeight="48.0" prefWidth="150.0" text="EPIGRAMAS" textFill="#1100fc">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Text layoutX="269.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editorial INTERZONA" />
+            <Text layoutX="269.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A lo largo de los versos, estrictamente paralela a la invasión de Somoza, ha ido surgiendo y brillando otra serie de valores: el pueblo, la poesía, la tierra permanente. A estos deberá dedicarse el autor a partir de ahora. Sin saberlo, lo que hemos presenciado en los Epigramas es, en realidad, el proceso de conversión del poeta de una eternidad que se muestra como ilusoria (la femenina) hasta otra que la trasciende y que tomará el nombre de Dios, Dios como pueblo, como verbo, como naturaleza, como concordancia de revolución, poesía y materia. Cardenal ha iniciado aquí, entonces, su viaje exploratorio, su propia expedición de conquista" wrappingWidth="547.830078125" />
+            <Label alignment="CENTER" layoutX="96.0" layoutY="443.0" prefHeight="35.0" prefWidth="59.0" text="15 u " textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="580.0" layoutY="211.0" prefHeight="35.0" prefWidth="59.0" text="8.990">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Text layoutX="513.0" layoutY="234.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label layoutX="574.0" layoutY="211.0" prefHeight="35.0" prefWidth="12.0" text="\$">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

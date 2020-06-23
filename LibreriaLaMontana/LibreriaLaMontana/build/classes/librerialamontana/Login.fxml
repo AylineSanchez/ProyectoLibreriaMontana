@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="librerialamontana.LoginController">
+   <children>
+      <Button fx:id="ingresar" layoutX="400.0" layoutY="250.0" mnemonicParsing="false" onAction="#ingresarSistemaEmpAdm" prefHeight="36.0" prefWidth="95.0" style="-fx-background-color: blue;" text="Ingresar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="102.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Librería" wrappingWidth="222.794921875">
+         <font>
+            <Font name="Andalus" size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="59.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La Montaña">
+         <font>
+            <Font name="Andalus" size="48.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="213.0" fitWidth="267.0" layoutX="70.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/montaña.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="contraseña" layoutX="367.0" layoutY="194.0" text="Contraseña">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="usuario" layoutX="367.0" layoutY="144.0" text="Usuario">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="39.0" fitWidth="36.0" layoutX="325.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/usuario.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="42.0" layoutX="324.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/contraseña.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="ingresarInvitado" layoutX="337.0" layoutY="333.0" mnemonicParsing="false" onAction="#ingresarSistemaInvitado" style="-fx-background-color: blue;" text="Ingresar como invitado" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="357.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Has olvidado tu contraseña?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="363.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido">
+         <font>
+            <Font name="Andalus" size="40.0" />
+         </font>
+      </Text>
+      <Pane prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: black;">
+         <children>
+            <Text fill="WHITE" layoutX="7.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Libreria La Montaña" />
+            <ImageView fitHeight="61.0" fitWidth="36.0" layoutX="568.0" layoutY="-2.0" onDragDetected="#cerrar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/cerrar.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
