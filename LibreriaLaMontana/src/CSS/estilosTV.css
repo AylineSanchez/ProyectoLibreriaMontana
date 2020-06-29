@@ -1,0 +1,8 @@
+.table-column {
+  -fx-alignment: CENTER;
+  -fx-background-color: rgba(135,206,250);
+}
+
+.table-row-cell {
+    -fx-background-color: rgba(135,206,235);
+}

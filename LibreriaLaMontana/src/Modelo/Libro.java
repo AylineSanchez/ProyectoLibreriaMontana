@@ -5,35 +5,27 @@
  */
 package Modelo;
 
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author Luciano
  */
 public class Libro {
-    int id;
-    String nombre;
-    String autor;
-    String descripcion;
-    int precio;
-    int stock;
-    String editorial;
-    String lengua;
-    int paginas;
-    String imagen;
-    int refCategoria;
+    private int id;
+    private String nombre;
+    private String autor;
+    private String descripcion;
+    private int precio;
+    private int stock;
+    private String editorial;
+    private String lengua;
+    private int paginas;
+    private int refCategoria;
+    private int refSubCategoria;
+    private ImageView imagen;
 
-    public Libro(int id, String nombre, String autor, String descripcion, int precio, int stock, String editorial, String lengua, int paginas, String imagen, int refCategoria) {
-        this.id = id;
-        this.nombre = nombre;
-        this.autor=autor;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.stock = stock;
-        this.editorial = editorial;
-        this.lengua = lengua;
-        this.paginas = paginas;
-        this.imagen = imagen;
-        this.refCategoria = refCategoria;
+    public Libro() {
     }
 
     public int getId() {
@@ -100,11 +92,11 @@ public class Libro {
         this.paginas = paginas;
     }
 
-    public String getImagen() {
+    public ImageView getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(ImageView imagen) {
         this.imagen = imagen;
     }
 
@@ -114,6 +106,14 @@ public class Libro {
 
     public void setRefCategoria(int refCategoria) {
         this.refCategoria = refCategoria;
+    }
+    
+    public int getRefSubCategoria() {
+        return refSubCategoria;
+    }
+
+    public void setSubRefCategoria(int refSubCategoria) {
+        this.refSubCategoria = refSubCategoria;
     }
 
     public String getAutor() {

@@ -4,17 +4,25 @@
  * and open the template in the editor.
  */
 package Conexion;
+import Modelo.Libro;
+import javafx.scene.image.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -113,30 +121,45 @@ public class Conector {
         }
     }
     
-    public void busquedaLA(String query){
+    public ObservableList<Libro> busquedaLibros(String query){
+        
+        
+        
+        //Lista de libros
+        ObservableList<Libro> libros = FXCollections.observableArrayList();
+        
         try {
             stmt = con.createStatement();
-            rs = stmt.executeQuery(query);
-
-            ResultSetMetaData rsmd = rs.getMetaData();
-            int columnsNumber = rsmd.getColumnCount();
-            while (rs.next()) {
-                for (int i = 1; i <= columnsNumber; i++) {
-                    if (i > 1) {
-                        System.out.print(",  ");
-                    }
-                    String columnValue = rs.getString(i);
-                    System.out.print(columnValue + " " + rsmd.getColumnName(i));
-                }
-                System.out.println("");
-            }
+            rs = stmt.executeQuery(query);   
             
+            while (rs.next()) {
+                    
+                    Libro libro = new Libro();
+                    libro.setId(rs.getInt("id"));
+                    libro.setNombre(rs.getString("nombre"));
+                    libro.setDescripcion(rs.getString("descripcion"));
+                    libro.setPrecio(rs.getInt("precio"));
+                    libro.setStock(rs.getInt("stock"));
+                    libro.setEditorial(rs.getString("editorial"));
+                    libro.setLengua(rs.getString("lengua"));
+                    libro.setPaginas(rs.getInt("paginas"));
+                    libro.setRefCategoria(rs.getInt("refCategoria"));
+                    libro.setSubRefCategoria(rs.getInt("refSubCategoria"));
+                    ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream("1N.jpg")));                    
+                    libro.setImagen(iv);
+                    //ImageView imagen = new ImageView(new Image(this.getClass().getResourceAsStream("/src/ImagenesLibro/"+rs.getInt("id")+".jpg")));                                    
+                    libros.add(libro);
+            }
+                        
             rs.close();
-            stmt.close();
+            stmt.close();            
 
         } catch (Exception e) {
 
         }
+        
+        return libros;
+        
     }
     
     public ResultSet enviarQuery(ResultSet rsCopia, String query){

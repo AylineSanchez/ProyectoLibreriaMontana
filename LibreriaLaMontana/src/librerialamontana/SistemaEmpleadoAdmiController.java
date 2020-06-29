@@ -55,24 +55,17 @@ public class SistemaEmpleadoAdmiController implements Initializable {
 
         busquedaString = busqueda.getText();
         System.out.println(busquedaString);
-        
-//        Stage stage = (Stage) root.getScene().getWindow();
-//        Parent root = null;
-//        
-//        root = FXMLLoader.load(getClass().getResource("ResultadosBusqueda.fxml"));
-//        
-//        Scene scene = new Scene(root);        
-//        stage.setScene(scene);
 
     Stage stage = (Stage) root.getScene().getWindow();
 
     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ResultadosBusqueda.fxml"));
         
     Parent root = (Parent)fxmlLoader.load();
-    ResultadosBusquedaController controller = fxmlLoader.<ResultadosBusquedaController>getController();
-    controller.setBusqueda(this.busquedaString);
-    controller.operarResultado();
+    ResultadosBusquedaController controllerSearch = fxmlLoader.<ResultadosBusquedaController>getController();
+    controllerSearch.setBusqueda(this.busquedaString);
+    controllerSearch.operarResultado();
     Scene scene = new Scene(root);
+    scene.getStylesheets().add("CSS/estilosTV.css");
     stage.setScene(scene);
     
     }
