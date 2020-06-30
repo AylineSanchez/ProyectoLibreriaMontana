@@ -44,6 +44,9 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     
     @FXML
     private Button btnBuscar;
+   
+    @FXML
+    private Button botonFuncionEliminar;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -63,6 +66,25 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     Parent root = (Parent)fxmlLoader.load();
     ResultadosBusquedaController controllerSearch = fxmlLoader.<ResultadosBusquedaController>getController();
     controllerSearch.setBusqueda(this.busquedaString);
+    controllerSearch.operarResultado();
+    Scene scene = new Scene(root);
+    scene.getStylesheets().add("CSS/estilosTV.css");
+    stage.setScene(scene);
+    
+    }
+    
+    @FXML 
+    private void displayEliminarProducto(ActionEvent event) throws IOException{
+
+    busquedaString = busqueda.getText();
+    System.out.println(busquedaString);
+
+    Stage stage = (Stage) root.getScene().getWindow();
+
+    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EliminarProducto.fxml"));
+        
+    Parent root = (Parent)fxmlLoader.load();
+    EliminarProductoController controllerSearch = fxmlLoader.<EliminarProductoController>getController();
     controllerSearch.operarResultado();
     Scene scene = new Scene(root);
     scene.getStylesheets().add("CSS/estilosTV.css");

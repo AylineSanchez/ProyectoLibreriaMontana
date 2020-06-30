@@ -40,21 +40,16 @@
             <Text layoutX="22.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Literatura y retorica" />
             <Text layoutX="22.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Religion" />
             <Text layoutX="21.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tecnologia" />
-            <Text layoutX="14.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editorial">
+            <Text layoutX="14.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Funciones Administrador">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="25.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kindberg" />
-            <Text layoutX="27.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oceano" />
-            <Text layoutX="27.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overol" />
-            <Text layoutX="27.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planeta" />
-            <Text layoutX="24.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Santillana" />
-            <Text layoutX="13.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Busqueda avanzada">
+            <Button fx:id="botonFuncionEliminar" layoutX="17.0" layoutY="316.0" mnemonicParsing="false" onAction="#displayEliminarProducto" text="Eliminar Producto">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font size="11.0" />
                </font>
-            </Text>
+            </Button>
          </children>
       </AnchorPane>
       <TextField fx:id="busqueda" layoutX="249.0" layoutY="36.0" prefHeight="30.0" prefWidth="198.0" text="Buscar" />
