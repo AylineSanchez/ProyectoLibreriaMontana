@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="885.0" prefWidth="1162.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="librerialamontana.UsuarioController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="32.0" prefHeight="786.0" prefWidth="241.0" style="-fx-background-color: blue; -fx-border-color: black;">
+         <children>
+            <Text layoutX="7.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="17.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artes" />
+            <Text layoutX="16.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciencias naturales y matematicas" />
+            <Text layoutX="17.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciencias sociales" />
+            <Text layoutX="17.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filosofia y Psicologia" />
+            <Text layoutX="17.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Geografia e historia" />
+            <Text layoutX="17.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generalidades" />
+            <Text layoutX="17.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lenguas" />
+            <Text layoutX="17.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Literatura y retorica" />
+            <Text layoutX="17.0" layoutY="574.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Religion" />
+            <Text layoutX="16.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tecnologia" />
+            <Text layoutX="9.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editorial">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="20.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kindberg" />
+            <Text layoutX="22.0" layoutY="672.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oceano" />
+            <Text layoutX="22.0" layoutY="699.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overol" />
+            <Text layoutX="22.0" layoutY="726.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planeta" />
+            <Text layoutX="18.0" layoutY="747.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Santillana" />
+            <Text layoutX="10.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opciones  De Administrador">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="42.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuarios" underline="true" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <Pane layoutX="251.0" layoutY="78.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="41.0" prefWidth="956.0" style="-fx-background-color: blue; -fx-background-radius: red;">
+         <children>
+            <Button layoutX="59.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Recomendados" textFill="#1c46d0" />
+            <Button layoutX="255.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Exitos en venta" textFill="#1c46d0" />
+            <Button layoutX="450.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Articulos libreria" textFill="#1c46d0" />
+            <Button layoutX="633.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: white;" text="Inventario" textFill="#1c46d0" />
+            <Button layoutX="770.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: white;" text="Ajustes" textFill="#1c46d0" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <TextField fx:id="busqueda" layoutX="260.0" layoutY="32.0" prefHeight="31.0" prefWidth="351.0" text="Buscar" />
+      <ComboBox editable="true" layoutX="619.0" layoutY="32.0" prefWidth="150.0" promptText="Buscar por" style="-fx-background-color: blue;" />
+      <Button fx:id="btnBuscar" layoutX="785.0" layoutY="32.0" mnemonicParsing="false" onAction="#buscar" prefHeight="31.0" prefWidth="94.0" text="Buscar" />
+      <ImageView fitHeight="41.0" fitWidth="35.0" layoutX="1040.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/usuario.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="1098.0" layoutY="17.0" prefHeight="31.0" prefWidth="87.0" style="-fx-background-color: trasparent;" text="N" />
+      <TextField layoutX="1098.0" layoutY="48.0" prefHeight="31.0" prefWidth="87.0" style="-fx-background-color: trasparent;" text="C" />
+      <Text layoutX="274.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Un Usuario">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="304.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alias :" />
+      <Text layoutX="302.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre :" />
+      <Text layoutX="306.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido:" />
+      <Text layoutX="302.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Contraseña :" />
+      <TextField fx:id="AliasText" layoutX="398.0" layoutY="207.0" prefHeight="31.0" prefWidth="264.0" />
+      <TextField fx:id="NombreText" layoutX="398.0" layoutY="253.0" prefHeight="31.0" prefWidth="264.0" />
+      <TextField fx:id="ApellidoText" layoutX="398.0" layoutY="305.0" prefHeight="31.0" prefWidth="264.0" />
+      <TextField fx:id="ContraseniaText" layoutX="398.0" layoutY="366.0" prefHeight="31.0" prefWidth="264.0" />
+      <Text layoutX="311.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permisos:" />
+      <Button fx:id="btnUsuarioP" layoutX="390.0" layoutY="427.0" mnemonicParsing="false" onAction="#usuarioPermiso" style="-fx-background-color: trasparent;" text="Usuario" underline="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnEmpleadoP" layoutX="468.0" layoutY="427.0" mnemonicParsing="false" onAction="#empleadoPermiso" style="-fx-background-color: trasparent;" text="Empleado" underline="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnAdminP" layoutX="562.0" layoutY="427.0" mnemonicParsing="false" onAction="#adminPermiso" style="-fx-background-color: trasparent;" text="Administrador" underline="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnCrearUsuario" layoutX="607.0" layoutY="482.0" mnemonicParsing="false" onAction="#crearUsuario" text="Crear Usuario" />
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="998.0" layoutY="729.0">
+         <image>
+            <Image url="@../../../../montaana.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="998.0" layoutY="652.0">
+         <image>
+            <Image url="@../../../../montana.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

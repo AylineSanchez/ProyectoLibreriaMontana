@@ -48,13 +48,21 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     @FXML
     private Button botonFuncionEliminar;
     
+    
+    @FXML
+    private Button btnUsuario;
+    @FXML
+    private Button btnProducto;
+    @FXML
+    private Button btnModificarar;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
     
     @FXML 
-    private void display(ActionEvent event) throws IOException{
+    private void displayBusqueda(ActionEvent event) throws IOException{
 
         busquedaString = busqueda.getText();
         System.out.println(busquedaString);
@@ -72,7 +80,6 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     stage.setScene(scene);
     
     }
-    
     @FXML 
     private void displayEliminarProducto(ActionEvent event) throws IOException{
 
@@ -90,6 +97,41 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     scene.getStylesheets().add("CSS/estilosTV.css");
     stage.setScene(scene);
     
+    }
+    @FXML 
+    private void usuario (ActionEvent event) throws IOException
+    {
+        Stage stage = (Stage) root.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Usuario.fxml"));
+        Parent root = (Parent)fxmlLoader.load();
+        
+        //ResultadosBusquedaController controller = fxmlLoader.<ResultadosBusquedaController>getController();
+        //controller.setBusqueda(this.busquedaString);
+        //controller.operarResultado();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+    }
+    
+    @FXML
+    private void agregarProducto (ActionEvent event) throws IOException
+    {
+         //se agrega un nuevo elemento
+        System.out.println("producto");
+    }
+    @FXML
+    private void modificarArticulo(ActionEvent event) throws IOException
+    {
+        Stage stage = (Stage) root.getScene().getWindow();
+        Parent root=null;
+        try {
+                root = FXMLLoader.load(getClass().getResource("ModificarArticulo.fxml"));
+            
+        } catch (IOException ex) {
+            System.out.println("No se puede cargar la vista ");
+        }
+        Scene scene = new Scene(root);        
+        scene.getStylesheets().add("CSS/estilosTV.css");
+        stage.setScene(scene);
     }
     
     public void setBusquedaString(String busq){
