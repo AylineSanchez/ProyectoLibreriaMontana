@@ -1,0 +1,54 @@
+CREATE TABLE Usuario(
+	alias text 
+		NOT NULL
+		PRIMARY KEY,
+	nombre text,
+	apellido text,
+	contrasena text,
+	tipo text
+);
+
+CREATE TABLE Categoria(
+	codigo integer
+		NOT NULL
+		PRIMARY KEY,
+	nombre text
+);
+
+CREATE TABLE SubCategoria(
+	codigo integer
+		NOT NULL
+		PRIMARY KEY,
+	nombre text,
+	refCategoria integer,
+	FOREIGN KEY (refCategoria) 
+		REFERENCES Categoria (codigo)
+);
+
+CREATE TABLE Libro(
+	id SERIAL 
+		NOT NULL
+		PRIMARY KEY,
+	nombre text,
+	descripcion text,
+	precio integer,
+	stock integer,
+	editorial text,
+	lengua text,
+	paginas integer,
+	refCategoria integer,
+	FOREIGN KEY (refCategoria) 
+		REFERENCES Categoria (codigo),
+	refSubCategoria integer,
+	FOREIGN KEY (refSubCategoria) 
+		REFERENCES SubCategoria (codigo)
+);
+
+CREATE TABLE Articulo(
+	id SERIAL 
+		PRIMARY KEY,
+	nombre text,
+	descripcion text,
+	precio integer,
+	stock integer
+);
