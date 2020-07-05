@@ -73,9 +73,9 @@ public class ModificarLibroController implements Initializable {
         // TODO
         c = new Conector();
         c.conect();
-        this.libros = c.eliminarLibro("SELECT * FROM libro;");
+        this.libros = c.ModificarLibro("SELECT * FROM libro;");
         int id = SeleccionElementoController.idSelectElement;
-        String nombreLibro="ksjksjdsa";
+        /*String nombreLibro="ksjksjdsa";
         String autorLibro="ksjdks";
         String descripcionLibro="sksadskdmskdsfdsf";
         String precioLibro="400";
@@ -84,6 +84,7 @@ public class ModificarLibroController implements Initializable {
         autor.setText(autorLibro);
         descripcion.setText(descripcionLibro);
         precio.setText(precioLibro);
+*/
     }    
     
     @FXML 

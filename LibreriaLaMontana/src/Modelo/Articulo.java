@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author Luciano
@@ -13,18 +15,22 @@ public class Articulo {
     
     int id;
     String nombre;
-    String imagen;
+    ImageView imagen;
     String descripcion;
     int precio;
     int stock;
 
-    public Articulo(int id, String nombre, String imagen, String descripcion, int precio, int stock) {
+    public Articulo(int id, String nombre, ImageView imagen, String descripcion, int precio, int stock) {
         this.id = id;
         this.nombre = nombre;
         this.imagen = imagen;
         this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
+    }
+    
+    public Articulo(){
+        
     }
 
     public int getId() {
@@ -43,11 +49,11 @@ public class Articulo {
         this.nombre = nombre;
     }
 
-    public String getImagen() {
+    public ImageView getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(ImageView imagen) {
         this.imagen = imagen;
     }
 

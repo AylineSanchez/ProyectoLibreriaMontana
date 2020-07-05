@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Conexion;
+import Modelo.Articulo;
 import Modelo.Libro;
 import javafx.scene.image.Image;
 import java.sql.Connection;
@@ -244,6 +245,41 @@ public class Conector {
         }
         
         return libros;
+        
+    }
+     public ObservableList<Articulo> ModificarArticulo(String query){
+        
+        
+        
+        //Lista de libros
+        ObservableList<Articulo> articulos = FXCollections.observableArrayList();
+        
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);   
+            
+            while (rs.next() && rs.getInt("stock")!=0) {
+                    
+                    Articulo libro = new Articulo();
+                    libro.setId(rs.getInt("id"));
+                    libro.setNombre(rs.getString("nombre"));
+                    libro.setDescripcion(rs.getString("descripcion"));
+                    libro.setPrecio(rs.getInt("precio"));
+                    libro.setStock(rs.getInt("stock"));
+                    ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream("1N.jpg")));                    
+                    libro.setImagen(iv);
+                    //ImageView imagen = new ImageView(new Image(this.getClass().getResourceAsStream("/src/ImagenesLibro/"+rs.getInt("id")+".jpg")));                                    
+                    articulos.add(libro);
+            }
+                        
+            rs.close();
+            stmt.close();            
+
+        } catch (Exception e) {
+
+        }
+        
+        return articulos;
         
     }
     

@@ -5,12 +5,16 @@
  */
 package librerialamontana;
 
+import Conexion.Conector;
+import Modelo.Articulo;
+import Modelo.Libro;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,20 +52,16 @@ public class ModificarArticuloController implements Initializable {
     
     @FXML
     private ImageView imagen;
-    
-    Connection con;
-    //TENGO QUE TOMAR EL OBJETO
-    int id=2;
+
+    private Conector c;
+    private ObservableList<Articulo> articulos;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        String nombreArticulo="ksjksjdsa";
-        String descripcionArticulo="sksadskdmskdsfdsf";
-        String precioArticulo="400";
-        //imagen.setImage("");
-        nombre.setText(nombreArticulo);
-        descripcion.setText(descripcionArticulo);
-        precio.setText(precioArticulo);
+        c = new Conector();
+        c.conect();
+        this.articulos = c.ModificarArticulo("SELECT * FROM articulo;");
+        int id = SeleccionElementoController.idSelectElement;
     }    
     
     @FXML 
@@ -79,24 +79,10 @@ public class ModificarArticuloController implements Initializable {
     }
     
     private void modificarArticulo(String nombre, String descripcion, String precio){
-        try {
-            Statement stmt = con.createStatement();
-            //test existence of tables
-            ResultSet rs;
-            rs = stmt.executeQuery("UPDATE Articulo SET nombre='"+nombre+"' , descripcion='"
-                    +descripcion+"' , precio='"+precio+"' WHERE id='"+id+"';");
-            rs.close();
-            stmt.close();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Modificacion exitosa");
-            alert.setHeaderText("Se ha realizado una modificacion exitosa");
-            alert.showAndWait();
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Modificacion fallida");
-            alert.setHeaderText("Ha ocurrido un problema con la base de datos, contactar al técnico");
-            alert.showAndWait();
-        }
+        String query="UPDATE Articulo SET nombre='"+nombre+"' , descripcion='"
+                    +descripcion+"' , precio='"+precio+"' WHERE id='"+SeleccionElementoController.idSelectElement+"';";
+        c.ModificarArticulo(query);
+        
     }
     @FXML 
     private void cancelar(ActionEvent event) throws IOException{
