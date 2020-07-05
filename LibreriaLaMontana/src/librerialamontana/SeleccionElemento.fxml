@@ -72,7 +72,7 @@
                   <Button layoutX="423.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: white;" text="Ajustes" textFill="#1c46d0" />
                </children>
             </Pane>
-            <Button fx:id="botonEliminar" layoutX="224.0" layoutY="495.0" mnemonicParsing="false" onAction="#eliminarProducto" style="-fx-background-color: blue;" text="Eliminar" textFill="WHITE">
+            <Button fx:id="botonModificar" layoutX="224.0" layoutY="495.0" mnemonicParsing="false" onAction="#modificarProducto" style="-fx-background-color: blue;" text="Modificar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -85,18 +85,18 @@
                </image>
             </ImageView>
             <ComboBox editable="true" layoutX="459.0" layoutY="39.0" prefWidth="150.0" promptText="Buscar por" style="-fx-background-color: blue;" />
-            <Text layoutX="224.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar producto">
+            <Text layoutX="224.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificar producto">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
             <TableView fx:id="tabla" layoutX="224.0" layoutY="154.0" prefHeight="323.0" prefWidth="604.0">
-              <columns>
-                <TableColumn fx:id="tablaID" prefWidth="122.0" text="ID" />
+               <columns>
+                  <TableColumn fx:id="tablaID" prefWidth="122.0" text="ID" />
                   <TableColumn fx:id="tablNombre" prefWidth="122.0" text="Nombre" />
                   <TableColumn fx:id="tablaStock" prefWidth="122.0" text="Stock" />
                   <TableColumn fx:id="tablaPrecio" prefWidth="122.0" text="Precio" />
-              </columns>
+               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>

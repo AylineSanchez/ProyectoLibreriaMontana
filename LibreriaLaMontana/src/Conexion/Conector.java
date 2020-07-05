@@ -205,6 +205,47 @@ public class Conector {
         return libros;
         
     }
+     
+     public ObservableList<Libro> ModificarLibro(String query){
+        
+        
+        
+        //Lista de libros
+        ObservableList<Libro> libros = FXCollections.observableArrayList();
+        
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);   
+            
+            while (rs.next() && rs.getInt("stock")!=0) {
+                    
+                    Libro libro = new Libro();
+                    libro.setId(rs.getInt("id"));
+                    libro.setNombre(rs.getString("nombre"));
+                    libro.setDescripcion(rs.getString("descripcion"));
+                    libro.setPrecio(rs.getInt("precio"));
+                    libro.setStock(rs.getInt("stock"));
+                    libro.setEditorial(rs.getString("editorial"));
+                    libro.setLengua(rs.getString("lengua"));
+                    libro.setPaginas(rs.getInt("paginas"));
+                    libro.setRefCategoria(rs.getInt("refCategoria"));
+                    libro.setSubRefCategoria(rs.getInt("refSubCategoria"));
+                    ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream("1N.jpg")));                    
+                    libro.setImagen(iv);
+                    //ImageView imagen = new ImageView(new Image(this.getClass().getResourceAsStream("/src/ImagenesLibro/"+rs.getInt("id")+".jpg")));                                    
+                    libros.add(libro);
+            }
+                        
+            rs.close();
+            stmt.close();            
+
+        } catch (Exception e) {
+
+        }
+        
+        return libros;
+        
+    }
     
     
     public ResultSet enviarQuery(ResultSet rsCopia, String query){

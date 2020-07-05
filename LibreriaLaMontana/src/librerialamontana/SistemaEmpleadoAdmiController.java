@@ -55,6 +55,8 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     private Button btnProducto;
     @FXML
     private Button btnModificarar;
+    @FXML
+    private Button btnModificarpro;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -125,6 +127,22 @@ public class SistemaEmpleadoAdmiController implements Initializable {
         Parent root=null;
         try {
                 root = FXMLLoader.load(getClass().getResource("ModificarArticulo.fxml"));
+            
+        } catch (IOException ex) {
+            System.out.println("No se puede cargar la vista ");
+        }
+        Scene scene = new Scene(root);        
+        scene.getStylesheets().add("CSS/estilosTV.css");
+        stage.setScene(scene);
+    }
+    
+    @FXML
+    private void modificarProducto(ActionEvent event) throws IOException
+    {
+        Stage stage = (Stage) root.getScene().getWindow();
+        Parent root=null;
+        try {
+                root = FXMLLoader.load(getClass().getResource("ModificarProducto.fxml"));
             
         } catch (IOException ex) {
             System.out.println("No se puede cargar la vista ");
