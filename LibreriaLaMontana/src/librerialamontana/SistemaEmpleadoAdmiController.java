@@ -93,6 +93,7 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EliminarProducto.fxml"));
         
     Parent root = (Parent)fxmlLoader.load();
+    
     EliminarProductoController controllerSearch = fxmlLoader.<EliminarProductoController>getController();
     controllerSearch.operarResultado();
     Scene scene = new Scene(root);
@@ -123,26 +124,26 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     @FXML
     private void modificarArticulo(ActionEvent event) throws IOException
     {
+        
         Stage stage = (Stage) root.getScene().getWindow();
-        Parent root=null;
-        try {
-                root = FXMLLoader.load(getClass().getResource("ModificarArticulo.fxml"));
-            
-        } catch (IOException ex) {
-            System.out.println("No se puede cargar la vista ");
-        }
+        FXMLLoader fxmlLoader= new  FXMLLoader(getClass().getResource("SeleccionElemento.fxml"));
+        Parent root = (Parent)fxmlLoader.load();   
+        SeleccionElementoController controllerSearch = fxmlLoader.<SeleccionElementoController>getController();
+        controllerSearch.operarResultado();
+        
         Scene scene = new Scene(root);        
-        scene.getStylesheets().add("CSS/estilosTV.css");
         stage.setScene(scene);
-    }
-    
+        
+        
+        System.out.println("holahoaoh");
+    } 
     @FXML
     private void modificarProducto(ActionEvent event) throws IOException
     {
         Stage stage = (Stage) root.getScene().getWindow();
         Parent root=null;
         try {
-                root = FXMLLoader.load(getClass().getResource("ModificarProducto.fxml"));
+                root = FXMLLoader.load(getClass().getResource("SeleccionElemento.fxml"));
             
         } catch (IOException ex) {
             System.out.println("No se puede cargar la vista ");
