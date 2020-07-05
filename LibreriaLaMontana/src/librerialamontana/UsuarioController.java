@@ -29,8 +29,9 @@ import javafx.scene.control.TextField;
 public class UsuarioController implements Initializable {
     private Conector c;
     PreparedStatement ps;
+    ResultSet rs;
     String Permiso;   
-    Connection con;
+    Connection con=null;
     
     @FXML
     private TextField busqueda;
@@ -59,8 +60,6 @@ public class UsuarioController implements Initializable {
     public void initialize(URL url, ResourceBundle rb)
     {
         c = new Conector();
-        c.conect();
-        System.out.println("CONECTADO A LA BASE DE DATOS");
     }
     @FXML
     private void buscar(ActionEvent event)
@@ -86,34 +85,30 @@ public class UsuarioController implements Initializable {
         System.out.println("Se dio permiso ADMIN");
     }
     @FXML
-    private void crearUsuario(ActionEvent event)
+    private void crearUsuario(ActionEvent event) throws SQLException
     {
-      /*
-        Alias = AliasText.getText();
-        Nombre = NombreText.getText();
-        Apellido = ApellidoText.getText();
-        Contrasena= ContraseniaText.getText(); 
-        System.out.println("LOS DATOS DEL NUEVO USUARIO SON; --->"+Alias +Nombre+ Apellido+ Contrasena+ Permiso);
-      */
-        try
-        {  
-            ps = con.prepareStatement("INSERT INTO usuario (alias,nombre,apellido,contrasena,tipo) VALUES(?,?,?,?,?)");
-            System.out.println("estou yaqwasdfgfnhfdrsfgd");
-            ps.setString(1, AliasText.getText());
-            ps.setString(2, NombreText.getText());
-            ps.setString(3, ApellidoText.getText());
-            ps.setString(4, ContraseniaText.getText());
-            ps.setString(5, Permiso);
-            ps.executeUpdate();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Se agregó un usuario");
-            alert.setHeaderText("el Nuevo usuario se agrego Correctamente");
-            alert.showAndWait();
-        } 
-        catch (SQLException ex) 
+        con=c.makeConnection();
+        System.out.println("me coneccte a la base de datos");
+        ps = con.prepareStatement("INSERT INTO usuario(alias,nombre,apellido,contrasena,tipo) VALUES(?,?,?,?,?)");
+        ps.setString(1, AliasText.getText());
+        ps.setString(2, NombreText.getText());
+        ps.setString(3, ApellidoText.getText());
+        ps.setString(4, ContraseniaText.getText());
+        ps.setString(5, Permiso);
+        int res=ps.executeUpdate();
+        
+        if(res>0)
         {
-            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("LISTOOOOOOOOOOOO");
+        
         }
+        con.close();
+        /*
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Se agregó un usuario");
+        alert.setHeaderText("el Nuevo usuario se agrego Correctamente");
+        alert.showAndWait();
+        */
         System.out.println("SE CREA USUARIOOO");
     }
 }
