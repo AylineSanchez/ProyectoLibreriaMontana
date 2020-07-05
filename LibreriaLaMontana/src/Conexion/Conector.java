@@ -71,12 +71,15 @@ public class Conector {
         }
     }
     
-    public void makeConnection() {
+    public Connection makeConnection() {
+        readFiles();
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(connectString, user, password);
+            return con;
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
+            return null;
         }
     }
     
