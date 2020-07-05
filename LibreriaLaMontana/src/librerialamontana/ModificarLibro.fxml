@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -11,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="535.0" prefWidth="823.0" style="-fx-background-color: white; -fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="535.0" prefWidth="823.0" style="-fx-background-color: white; -fx-border-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="librerialamontana.ModificarLibroController">
    <children>
       <Pane prefHeight="30.0" prefWidth="832.0" style="-fx-background-color: black;" />
       <Text layoutX="88.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Librería La Montaña">
@@ -104,7 +109,7 @@
          </font>
       </Text>
       <TextField fx:id="descripcion" layoutX="316.0" layoutY="230.0" prefHeight="166.0" prefWidth="213.0" />
-      <Button layoutX="360.0" layoutY="483.0" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE">
+      <Button fx:id="cancelar" layoutX="360.0" layoutY="483.0" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -114,7 +119,7 @@
             <Image url="@../imagenes/imagenLibro1.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="636.0" layoutY="396.0" mnemonicParsing="false" onAction="#cambiarImagen" style="-fx-background-color: blue;" text="Cambiar imagen" textFill="WHITE">
+      <Button fx:id="cambiarImagen" layoutX="636.0" layoutY="396.0" mnemonicParsing="false" onAction="#cambiarImagen" style="-fx-background-color: blue;" text="Cambiar imagen" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

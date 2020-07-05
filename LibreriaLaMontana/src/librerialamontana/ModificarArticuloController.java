@@ -52,16 +52,24 @@ public class ModificarArticuloController implements Initializable {
     
     @FXML
     private ImageView imagen;
+    @FXML
+    private Button cambiar;
+    @FXML
+    private Button cancelar;
+    @FXML
+    private Button guardar;
 
     private Conector c;
     private ObservableList<Articulo> articulos;
     @Override
+    
+    
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         c = new Conector();
         c.conect();
         this.articulos = c.ModificarArticulo("SELECT * FROM articulo;");
-        int id = SeleccionElementoController.idSelectElement;
+        //int id = SeleccionElementoController.idSelectElement;
     }    
     
     @FXML 
@@ -79,9 +87,11 @@ public class ModificarArticuloController implements Initializable {
     }
     
     private void modificarArticulo(String nombre, String descripcion, String precio){
+        /*
         String query="UPDATE Articulo SET nombre='"+nombre+"' , descripcion='"
                     +descripcion+"' , precio='"+precio+"' WHERE id='"+SeleccionElementoController.idSelectElement+"';";
         c.ModificarArticulo(query);
+        */
         
     }
     @FXML 

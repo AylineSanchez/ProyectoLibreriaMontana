@@ -53,17 +53,20 @@ public class ModificarLibroController implements Initializable {
     @FXML
     private TextField precio;
     
+    
+   
     @FXML
     private Button guardar;
-    
+    /*
     @FXML
     private Button cancelar;
     
     @FXML
     private Button cambiarImagen;
-    
+    */
     @FXML
     private ImageView imagen;
+    
     private Conector c;
     private ObservableList<Libro> libros;
     
@@ -74,39 +77,31 @@ public class ModificarLibroController implements Initializable {
         c = new Conector();
         c.conect();
         this.libros = c.ModificarLibro("SELECT * FROM libro;");
-        int id = SeleccionElementoController.idSelectElement;
-        /*String nombreLibro="ksjksjdsa";
-        String autorLibro="ksjdks";
-        String descripcionLibro="sksadskdmskdsfdsf";
-        String precioLibro="400";
-        //imagen.setImage("");
-        titulo.setText(nombreLibro);
-        autor.setText(autorLibro);
-        descripcion.setText(descripcionLibro);
-        precio.setText(precioLibro);
-*/
     }    
     
     @FXML 
     private void guardarCambios(ActionEvent event) throws IOException{
+        
+        String nuevo= titulo.getText();
+        System.out.println("titulo"+ nuevo);
         modificarLibro(titulo.getText(),autor.getText(),descripcion.getText(),precio.getText());
+        
         Stage stage = (Stage) root.getScene().getWindow();
-        Parent root=null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("sistemaEmpleadoAdmi.fxml"));
-        } catch (IOException ex) {
-            System.out.println("No se puede cargar la vista ");
-        }
-        Scene scene = new Scene(root);        
-        stage.setScene(scene);//
+        //Parent root = null;
+        FXMLLoader fxmlLoader= new  FXMLLoader(getClass().getResource("sistemaEmpleadoAdmi.fxml"));
+        Parent root = (Parent)fxmlLoader.load();   
+        Scene scene = new Scene(root);
+        stage.setScene(scene);  
     }
     
     private void modificarLibro(String titulo, String autor, String descripcion, String precio){
-        String query= "UPDATE Libro SET nombre='"+titulo+"' , autor='"+autor+"' , descripcion='"
-                    +descripcion+"' , precio='"+precio+"' WHERE id='"+SeleccionElementoController.idSelectElement+"';";
+        System.out.println("SOY EL ID EN MODIFIACAR LIBRO"+ SeleccionElementoController.idSelectElement);
+        
+        String query= "UPDATE libro SET nombre='"+titulo+"' , autor='"+autor+"' , descripcion='"+descripcion+"' , precio='"+precio+"' WHERE id='"+SeleccionElementoController.idSelectElement+"';";
         c.ModificarLibro(query);
-           
+         
     }
+    
     @FXML 
     private void cancelar(ActionEvent event) throws IOException{
         Stage stage = (Stage) root.getScene().getWindow();
