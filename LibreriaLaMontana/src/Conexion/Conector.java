@@ -5,6 +5,7 @@
  */
 package Conexion;
 import Modelo.Articulo;
+import Modelo.Categoria;
 import Modelo.Libro;
 import javafx.scene.image.Image;
 import java.sql.Connection;
@@ -125,10 +126,10 @@ public class Conector {
         }
     }
     
+    
+    
+    
     public ObservableList<Libro> busquedaLibros(String query){
-        
-        
-        
         //Lista de libros
         ObservableList<Libro> libros = FXCollections.observableArrayList();
         
@@ -165,6 +166,33 @@ public class Conector {
         return libros;
         
     }
+    
+    public ObservableList<Categoria> modificarCategoria(String query) {
+        //Lista de categorias
+        ObservableList<Categoria> categorias = FXCollections.observableArrayList();
+        
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);   
+            
+            while (rs.next()) {
+                    
+                Categoria categoria = new Categoria();
+                categoria.setCodigo(rs.getInt("codigo"));
+                categoria.setNombre(rs.getString("nombre"));
+                categorias.add(categoria);
+            }
+                        
+            rs.close();
+            stmt.close();            
+
+        } catch (Exception e) {
+
+        }
+        
+        return categorias;
+    }
+    
     
      public ObservableList<Libro> eliminarLibro(String query){
         
