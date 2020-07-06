@@ -76,22 +76,19 @@ public class ModificarArticuloController implements Initializable {
     private void guardarCambios(ActionEvent event) throws IOException{
         modificarArticulo(nombre.getText(),descripcion.getText(),precio.getText());
         Stage stage = (Stage) root.getScene().getWindow();
-        Parent root=null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("sistemaEmpleadoAdmi.fxml"));
-        } catch (IOException ex) {
-            System.out.println("No se puede cargar la vista ");
-        }
-        Scene scene = new Scene(root);        
-        stage.setScene(scene);//
+        //Parent root = null;
+        FXMLLoader fxmlLoader= new  FXMLLoader(getClass().getResource("sistemaEmpleadoAdmi.fxml"));
+        Parent root = (Parent)fxmlLoader.load();   
+        Scene scene = new Scene(root);
+        stage.setScene(scene);  
     }
     
     private void modificarArticulo(String nombre, String descripcion, String precio){
-        /*
+        
         String query="UPDATE Articulo SET nombre='"+nombre+"' , descripcion='"
                     +descripcion+"' , precio='"+precio+"' WHERE id='"+SeleccionElementoController.idSelectElement+"';";
         c.ModificarArticulo(query);
-        */
+        
         
     }
     @FXML 

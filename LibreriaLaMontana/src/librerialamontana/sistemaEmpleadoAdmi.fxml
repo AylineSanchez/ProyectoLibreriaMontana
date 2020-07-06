@@ -64,7 +64,7 @@
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnModificarpro" layoutX="20.0" layoutY="421.0" mnemonicParsing="false" onAction="#modificarProducto" style="-fx-background-color: white;" text="Modificar Producto">
+            <Button fx:id="btnModificarpro" layoutX="20.0" layoutY="421.0" mnemonicParsing="false" onAction="#modificarProducto" style="-fx-background-color: white;" text="Modificar Libro">
                <font>
                   <Font size="12.0" />
                </font>

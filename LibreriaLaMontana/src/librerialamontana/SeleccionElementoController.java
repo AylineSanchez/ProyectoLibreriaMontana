@@ -6,6 +6,7 @@
 package librerialamontana;
 
 import Conexion.Conector;
+import Modelo.Articulo;
 import Modelo.Libro;
 import java.io.IOException;
 import java.net.URL;
@@ -26,6 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import static librerialamontana.SeleccionElementoController.tipo;
 
 /**
  * FXML Controller class
@@ -36,17 +38,24 @@ public class SeleccionElementoController implements Initializable {
 
     @FXML
     private AnchorPane root;
-    @FXML private TableView<Libro> tabla;
-    @FXML private TableColumn<Libro, String> tablaID;
-    @FXML private TableColumn<Libro, String> tablNombre;
-    @FXML private TableColumn<Libro, String> tablaStock;
-    @FXML private TableColumn<Libro, String> tablaPrecio;
+    
     private ObservableList<Libro> libros;
+    private ObservableList<Articulo> articulos;
     private Conector c;
     @FXML private Button modificar;
     Connection con=null;
     static public int idSelectElement;
-    
+    static public String tipo= "";
+    @FXML 
+    private TableView<Libro> tabla;
+    @FXML 
+    private TableColumn<Libro, String> tablaID;
+    @FXML 
+    private TableColumn<Libro, String> tablNombre;
+    @FXML 
+    private TableColumn<Libro, String> tablaStock;
+    @FXML 
+    private TableColumn<Libro, String> tablaPrecio;
 
     /**
      * Initializes the controller class.
@@ -57,15 +66,15 @@ public class SeleccionElementoController implements Initializable {
         c.conect();
         con=c.makeConnection();
         this.libros = FXCollections.observableArrayList();
-        
+        this.articulos = FXCollections.observableArrayList();
     }    
 
     @FXML
     private void goBack(MouseEvent event) {
     }
-    public void operarResultado(){
+    public void operarResultadoLibro(){
      //query que enviamos
-        String query = "SELECT * FROM libro;";
+        String query = "SELECT * FROM Libro;";
         //creamos el arreglo de libros
         this.setLibros(c.ModificarLibro(query));
         //Si el resultado es nulo
@@ -77,23 +86,50 @@ public class SeleccionElementoController implements Initializable {
         }
         
     }
+    public void operarResultadoArticulo(){
+     //query que enviamos
+        String query = "SELECT * FROM Articulo;";
+        //creamos el arreglo de libros
+        this.setArticulos(c.ModificarArticulo(query));
+        //Si el resultado es nulo
+       if (!this.articulos.isEmpty()){
+            this.populateTableView();
+            //this.tabla.setItems(articulos);
+        } else {
+         //   this.tabla.setVisible(false);
+        }
+        
+    }
     @FXML
     public void modificarElemento(ActionEvent event) throws IOException
     {
 
         idSelectElement = tabla.getSelectionModel().getSelectedItem().getId();
-        System.out.println("SOY EL ID EN SEELLCION ELEM"+ idSelectElement);
         
-        Stage stage = (Stage) root.getScene().getWindow();
-        //Parent root = null;
-        FXMLLoader fxmlLoader= new  FXMLLoader(getClass().getResource("ModificarLibro.fxml"));
-        Parent root = (Parent)fxmlLoader.load();   
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        if(tipo=="Articulo"){
+            Stage stage = (Stage) root.getScene().getWindow();
+            //Parent root = null;
+            FXMLLoader fxmlLoader= new  FXMLLoader(getClass().getResource("ModificarArticulo.fxml"));
+            Parent root = (Parent)fxmlLoader.load();   
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        }
+        if(tipo=="Libro"){
+            Stage stage = (Stage) root.getScene().getWindow();
+            //Parent root = null;
+            FXMLLoader fxmlLoader= new  FXMLLoader(getClass().getResource("ModificarLibro.fxml"));
+            Parent root = (Parent)fxmlLoader.load();   
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        }
+        
     }
    
      public void setLibros(ObservableList<Libro> librosBD){
         this.libros = librosBD;
+    }
+     public void setArticulos(ObservableList<Articulo> articulosBD){
+        this.articulos = articulosBD;
     }
      private void populateTableView(){
         this.tablaID.setCellValueFactory(new PropertyValueFactory("id"));
