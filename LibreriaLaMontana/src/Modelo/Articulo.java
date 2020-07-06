@@ -20,8 +20,9 @@ public class Articulo {
     int precio;
     int stock;
 
-    
-   
+     public Articulo(){
+        
+    }
     
     public Articulo(int id, String nombre, ImageView imagen, String descripcion, int precio, int stock) {
         this.id = id;
@@ -32,9 +33,7 @@ public class Articulo {
         this.stock = stock;
     }
     
-     public Articulo(){
-        
-    }
+   
 
     public int getId() {
         return id;

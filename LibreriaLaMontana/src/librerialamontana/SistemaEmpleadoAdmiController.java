@@ -57,6 +57,8 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     private Button btnModificarar;
     @FXML
     private Button btnModificarpro;
+    @FXML
+    private Button btnModificarcategoria;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -82,6 +84,26 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     stage.setScene(scene);
     
     }
+    
+    @FXML 
+    private void displayModificarCategoria(ActionEvent event) throws IOException{
+
+    busquedaString = busqueda.getText();
+    System.out.println(busquedaString);
+
+    Stage stage = (Stage) root.getScene().getWindow();
+
+    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ModificarCategoria.fxml"));
+        
+    Parent root = (Parent)fxmlLoader.load();
+    
+    ModificarCategoriaController controllerSearch = fxmlLoader.<ModificarCategoriaController>getController();
+    controllerSearch.operarResultado();
+    Scene scene = new Scene(root);
+    scene.getStylesheets().add("CSS/estilosTV.css");
+    stage.setScene(scene);
+    }
+    
     @FXML 
     private void displayEliminarProducto(ActionEvent event) throws IOException{
 
@@ -99,8 +121,8 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     Scene scene = new Scene(root);
     scene.getStylesheets().add("CSS/estilosTV.css");
     stage.setScene(scene);
-    
     }
+    
     @FXML 
     private void usuario (ActionEvent event) throws IOException
     {

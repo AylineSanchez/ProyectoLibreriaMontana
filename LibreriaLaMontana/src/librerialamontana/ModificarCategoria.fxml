@@ -15,22 +15,17 @@
    <children>
       <AnchorPane id="AnchorPane" fx:id="root" layoutX="10.0" layoutY="10.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="553.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="553.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagenes/montaña.png" />
                </image>
             </ImageView>
-            <Text layoutX="621.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La Montaña">
+            <Text layoutX="621.0" layoutY="41.0" onMouseClicked="#goBack" strokeType="OUTSIDE" strokeWidth="0.0" text="La Montaña">
                <font>
                   <Font name="Times New Roman" size="22.0" />
                </font>
             </Text>
             <Line endX="1046.5" layoutX="241.0" layoutY="60.0" startX="-241.0" />
-            <ImageView fx:id="back" fitHeight="34.0" fitWidth="53.0" layoutX="14.0" layoutY="17.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagenes/toppng.com-back-arrow-icon-533x345.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="1227.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagenes/usuario.png" />
@@ -43,7 +38,7 @@
                 <TableColumn fx:id="tablaNombre" prefWidth="1002.0" text="Nombre" />
               </columns>
             </TableView>
-            <Button fx:id="botonModificar" layoutX="1180.0" layoutY="671.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="87.0" style="-fx-background-color: blue;" text="Modificar" textFill="WHITE">
+            <Button fx:id="botonModificar" layoutX="1180.0" layoutY="671.0" mnemonicParsing="false" onAction="#modificarCategoria" prefHeight="35.0" prefWidth="87.0" style="-fx-background-color: blue;" text="Modificar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -56,5 +51,10 @@
             </Text>
          </children>
       </AnchorPane>
+      <ImageView fx:id="back" fitHeight="34.0" fitWidth="53.0" layoutX="24.0" layoutY="27.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/toppng.com-back-arrow-icon-533x345.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

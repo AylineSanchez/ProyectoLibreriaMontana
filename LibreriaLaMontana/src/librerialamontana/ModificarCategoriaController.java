@@ -47,13 +47,10 @@ public class ModificarCategoriaController implements Initializable {
     @FXML private AnchorPane root;
     @FXML private ImageView back;
     @FXML private TableView<Categoria> tabla;
-    @FXML private TableColumn<Integer, Categoria> tablaID;
-    @FXML private TableColumn<String, Categoria> tablaNombre;
+    @FXML private TableColumn<Categoria, Integer> tablaID;
+    @FXML private TableColumn<Categoria, String> tablaNombre;
     @FXML private Button botonModificar;
     @FXML private TextField campoDeTexto;
-    @FXML void goBack(MouseEvent event) {
-        
-    }
     
 
     private int idSelect;
@@ -85,8 +82,8 @@ public class ModificarCategoriaController implements Initializable {
         
         //query que enviamos
         String query = "SELECT * FROM categoria;";
-        //creamos el arreglo de libros
-        this.setLibros(c.modificarCategoria(query));
+        //creamos el arreglo de categorias
+        this.setCategorias(c.modificarCategoria(query));
         //Si el resultado es nulo
        if (!this.categorias.isEmpty()){
             this.populateTableView();
@@ -98,13 +95,19 @@ public class ModificarCategoriaController implements Initializable {
     }
     
     @FXML    
-    public void eliminarProducto(ActionEvent event)
+    public void modificarCategoria(ActionEvent event)
     {
-        
-        idSelect = tabla.getSelectionModel().getSelectedItem().getCodigo();
-        String query = "UPDATE public.categoria SET nombre='"+campoDeTexto.getText()+"' WHERE codigo='"+idSelect+"';" ;
-        c.eliminarLibro(query);
-        operarResultado();
+        if(!tabla.getSelectionModel().isEmpty())
+        {
+            idSelect = tabla.getSelectionModel().getSelectedItem().getCodigo();
+            String query = "UPDATE public.categoria SET nombre='"+campoDeTexto.getText()+"' WHERE codigo='"+idSelect+"';" ;
+            c.eliminarLibro(query);
+            operarResultado();
+        }
+        else
+            System.out.println("Seleccione una categoría");
+            
+            
     }
     
     private void populateTableView(){
@@ -119,9 +122,9 @@ public class ModificarCategoriaController implements Initializable {
         
         
         Stage stage = (Stage) root.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EliminarProducto.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ModificarCategoria.fxml"));
         Parent root = (Parent) fxmlLoader.load();
-        EliminarProductoController controllerSearch = fxmlLoader.<EliminarProductoController>getController();
+        ModificarCategoriaController controllerSearch = fxmlLoader.<ModificarCategoriaController>getController();
         controllerSearch.operarResultado();
         Scene scene = new Scene(root);
         scene.getStylesheets().add("CSS/estilosTV.css");
@@ -130,15 +133,12 @@ public class ModificarCategoriaController implements Initializable {
         
     }
     
-    public void resultadoVacio(){
-        
+    
+    public void setCategorias(ObservableList<Categoria> categoriasBD){
+        this.categorias = categoriasBD;
     }
     
-    public void setLibros(ObservableList<Categoria> librosBD){
-        this.categorias = librosBD;
-    }
-    
-    public void imprimirLibros(){
+    public void imprimirCategorias(){
         for(int i = 0; i < categorias.size(); i++){
             System.out.println(categorias.get(i).getNombre());
         }
