@@ -82,6 +82,8 @@ public class ModificarLibroController implements Initializable {
     @FXML 
     private void guardarCambios(ActionEvent event) throws IOException{
         
+        String nuevo= titulo.getText();
+        System.out.println("titulo"+ nuevo);
         modificarLibro(titulo.getText(),autor.getText(),descripcion.getText(),precio.getText());
         
         Stage stage = (Stage) root.getScene().getWindow();

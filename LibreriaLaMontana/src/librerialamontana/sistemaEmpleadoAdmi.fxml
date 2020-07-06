@@ -22,7 +22,7 @@
             <Image url="@../imagenes/montaña.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutY="67.0" prefHeight="467.0" prefWidth="213.0" style="-fx-background-color: white; -fx-border-color: black;">
+      <AnchorPane layoutY="67.0" prefHeight="467.0" prefWidth="184.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
             <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria">
                <font>
@@ -44,27 +44,32 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="botonFuncionEliminar" layoutX="21.0" layoutY="396.0" mnemonicParsing="false" onAction="#displayEliminarProducto" style="-fx-background-color: white;" text="Eliminar Producto">
+            <Button fx:id="botonFuncionEliminar" layoutX="13.0" layoutY="384.0" mnemonicParsing="false" onAction="#displayEliminarProducto" style="-fx-background-color: white;" text="Eliminar Producto">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnUsuario" layoutX="22.0" layoutY="309.0" mnemonicParsing="false" onAction="#usuario" style="-fx-background-color: white;" text="Crear Usuario">
+            <Button fx:id="btnUsuario" layoutX="14.0" layoutY="309.0" mnemonicParsing="false" onAction="#usuario" style="-fx-background-color: white;" text="Crear Usuario">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnProducto" layoutX="17.0" layoutY="340.0" mnemonicParsing="false" onAction="#agregarProducto" style="-fx-background-color: white;" text="Crear Producto">
+            <Button fx:id="btnProducto" layoutX="13.0" layoutY="334.0" mnemonicParsing="false" onAction="#agregarProducto" style="-fx-background-color: white;" text="Crear Producto">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnModificarar" layoutX="21.0" layoutY="371.0" mnemonicParsing="false" onAction="#modificarArticulo" style="-fx-background-color: white;" text="Modificar Articulo">
+            <Button fx:id="btnModificarar" layoutX="12.0" layoutY="359.0" mnemonicParsing="false" onAction="#modificarArticulo" style="-fx-background-color: white;" text="Modificar Articulo">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnModificarpro" layoutX="20.0" layoutY="421.0" mnemonicParsing="false" onAction="#modificarProducto" style="-fx-background-color: white;" text="Modificar Libro">
+            <Button fx:id="btnModificarpro" layoutX="13.0" layoutY="409.0" mnemonicParsing="false" onAction="#modificarProducto" style="-fx-background-color: white;" text="Modificar Producto">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnModificarpro1" layoutX="12.0" layoutY="434.0" mnemonicParsing="false" onAction="#displayModificarCategoria" style="-fx-background-color: white;" text="Modificar Categoría">
                <font>
                   <Font size="12.0" />
                </font>

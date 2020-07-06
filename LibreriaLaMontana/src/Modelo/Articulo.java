@@ -20,6 +20,9 @@ public class Articulo {
     int precio;
     int stock;
 
+    
+   
+    
     public Articulo(int id, String nombre, ImageView imagen, String descripcion, int precio, int stock) {
         this.id = id;
         this.nombre = nombre;
@@ -29,7 +32,7 @@ public class Articulo {
         this.stock = stock;
     }
     
-    public Articulo(){
+     public Articulo(){
         
     }
 

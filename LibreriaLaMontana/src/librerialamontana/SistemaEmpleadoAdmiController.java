@@ -129,8 +129,8 @@ public class SistemaEmpleadoAdmiController implements Initializable {
         FXMLLoader fxmlLoader= new  FXMLLoader(getClass().getResource("SeleccionElemento.fxml"));
         Parent root = (Parent)fxmlLoader.load();   
         SeleccionElementoController controllerSearch = fxmlLoader.<SeleccionElementoController>getController();
-        controllerSearch.operarResultadoArticulo();
-        SeleccionElementoController.tipo="Articulo";
+        controllerSearch.operarResultado();
+        
         Scene scene = new Scene(root);        
         stage.setScene(scene);
         
@@ -141,12 +141,15 @@ public class SistemaEmpleadoAdmiController implements Initializable {
     private void modificarProducto(ActionEvent event) throws IOException
     {
         Stage stage = (Stage) root.getScene().getWindow();
-        FXMLLoader fxmlLoader= new  FXMLLoader(getClass().getResource("SeleccionElemento.fxml"));
-        Parent root = (Parent)fxmlLoader.load();   
-        SeleccionElementoController controllerSearch = fxmlLoader.<SeleccionElementoController>getController();
-        controllerSearch.operarResultadoLibro();
-        SeleccionElementoController.tipo="Libro";
+        Parent root=null;
+        try {
+                root = FXMLLoader.load(getClass().getResource("SeleccionElemento.fxml"));
+            
+        } catch (IOException ex) {
+            System.out.println("No se puede cargar la vista ");
+        }
         Scene scene = new Scene(root);        
+        scene.getStylesheets().add("CSS/estilosTV.css");
         stage.setScene(scene);
     }
     

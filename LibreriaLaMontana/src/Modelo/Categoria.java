@@ -19,6 +19,10 @@ public class Categoria {
     int codigo;
     String nombre;
 
+    
+    public Categoria() {
+    }
+    
     public Categoria(int codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;

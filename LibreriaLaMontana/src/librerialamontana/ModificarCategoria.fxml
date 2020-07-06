@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="librerialamontana.ModificarCategoriaController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="root" layoutX="10.0" layoutY="10.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="553.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/montaña.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="621.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La Montaña">
+               <font>
+                  <Font name="Times New Roman" size="22.0" />
+               </font>
+            </Text>
+            <Line endX="1046.5" layoutX="241.0" layoutY="60.0" startX="-241.0" />
+            <ImageView fx:id="back" fitHeight="34.0" fitWidth="53.0" layoutX="14.0" layoutY="17.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/toppng.com-back-arrow-icon-533x345.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="1227.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/usuario.png" />
+               </image>
+            </ImageView>
+            <Line endX="1039.0" layoutX="241.0" startX="-241.0" strokeWidth="15.0" />
+            <TableView fx:id="tabla" layoutX="41.0" layoutY="92.0" prefHeight="504.0" prefWidth="1206.0">
+              <columns>
+                <TableColumn fx:id="tablaID" prefWidth="203.0" text="ID" />
+                <TableColumn fx:id="tablaNombre" prefWidth="1002.0" text="Nombre" />
+              </columns>
+            </TableView>
+            <Button fx:id="botonModificar" layoutX="1180.0" layoutY="671.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="87.0" style="-fx-background-color: blue;" text="Modificar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TextField fx:id="campoDeTexto" layoutX="41.0" layoutY="646.0" prefHeight="25.0" prefWidth="213.0" />
+            <Text layoutX="41.0" layoutY="641.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo nombre:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
